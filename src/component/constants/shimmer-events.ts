@@ -1,0 +1,3 @@
+const SHIMMER_ANIMATION_COMPLETE_EVENT = 'allelementanimationcompleteevent';
+
+export default SHIMMER_ANIMATION_COMPLETE_EVENT

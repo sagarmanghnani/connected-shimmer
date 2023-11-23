@@ -1,0 +1,24 @@
+.shimmer-effect {
+    width: 200px;
+    height: 200px;
+    background: lightgray;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-effect-start-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+    animation: shimmer 2s linear;
+  }
+  
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
