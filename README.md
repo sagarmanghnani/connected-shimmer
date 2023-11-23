@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# Shimmer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project consists of mainly two components
+1. Shimmer
+2. ConnectedShimmer
 
-## Available Scripts
+# About Shimmer component
+This is a simple traditional shimmer which takes up following props
+1. isLoading: when set to false, it removes the shimmer, and shows the content wrapped around it
+2. width: takes, width of the shimmer element, default is 100%
+3. height: takes height of the shimmer element, default is 50px
+4. className: in order to provide custom css
 
-In the project directory, you can run:
+# About Connected Shimmer
+This component works in a way, when all shimmer elements defined inside this component, completes their animation, till then it waits for all the components, to complete their animation, and then it starts the new animation for all the connected shimmer altogether, making the animation syncronized
 
-### `npm start`
+# Approach taken for Connected Shimmeer
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Basic Idea:
+    ShimmerConnector, component, that manages, the restart and start of animation, it keeps track of shimmer elements, used within it, and when all shimmer components, completes their animation, it trigger an event, signalling all the shimmer components, to start the animation again, and together
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    In order to handle the logic of Shimmer connection and keeping it independent of Basic Shimmer component, I am using WithShimmerConnector HOC, this hoc receives, two state updaters namely: setShimmerCount, setCompletedShimmerCount
+    One is used to keep count of number of shimmer used, Other one is used to keep count of how many shimmers have completed their animation.
 
-### `npm test`
+    once (number of shimmers = number of completed shimmer animation) this condition satisfies, we trigger, new animation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    I used HOC, in order to keep logic out of basic shimmer, and make it easy to use as a different component, as a different component, Using this approach, I can abstract away the logic, and hassle for connection, and make easy to use all these components
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
