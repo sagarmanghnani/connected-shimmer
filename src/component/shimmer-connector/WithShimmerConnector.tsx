@@ -1,5 +1,5 @@
 import IShimmerPropsConfig, { IShimmerConnectorSupporter } from "../../interfaces";
-import React, { useEffect, useState, useRef, useCallback, useMemo, useContext } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import SHIMMER_ANIMATION_COMPLETE_EVENT from "../constants";
 import ShimmerContext from "../../context";
 
@@ -24,6 +24,7 @@ function withShimmerConnector<P>(
                     shimmerElemRef.current?.classList.add('shimmer-effect-start-animation');
                 })
             }
+            // eslint-disable-next-line
         }, []);
 
         return (

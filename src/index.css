@@ -15,5 +15,5 @@ code {
  */
 
 :root {
-  --default_shimmer_color: red;
+  --default-animation-duration: 2s
 }

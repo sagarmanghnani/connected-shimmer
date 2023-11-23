@@ -5,7 +5,7 @@ import './template1.css';
 const ImageShimmer = (props:any) => {
     return (
         <ConnectedShimmer width='400px' height='300px' isLoading={props?.isLoading} {...props}>
-            <img src="http://placekitten.com/g/400/300"></img>
+            <img src="http://placekitten.com/g/400/300" alt="cat"></img>
         </ConnectedShimmer>
     )
 }

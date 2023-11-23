@@ -14,17 +14,11 @@ const ShimmerConnector = (props: IShimmerConnector) => {
             document.dispatchEvent(allElementAnimationCompleteEvent);
             setCompletedShimmerCount(0);
         }
+        // eslint-disable-next-line
     }, [completedShimmerCount])
 
     const {children} = props;
-    const renderChildren = () => {
-        return React.Children.map(children, (child) => {
-            return React.cloneElement(child, {
-                setShimmerCount,
-                setCompletedShimmerCount
-            })
-        })
-    }
+   
     return (
         <>
             <ShimmerContext.Provider value={{
