@@ -27,3 +27,8 @@ This component works in a way, when all shimmer elements defined inside this com
     I used HOC, in order to keep logic out of basic shimmer, and make it easy to use as a different component, as a different component, Using this approach, I can abstract away the logic, and hassle for connection, and make easy to use all these components
 
 
+
+# Link for viewing Shimmer
+https://master--shimmer-demo.netlify.app/
+
+
