@@ -32,7 +32,7 @@ const ShimmerTemplate = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsLoading(false);
-        }, 50000);
+        }, 5000);
         return () => {
             clearTimeout(timeout);
         }
